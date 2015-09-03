@@ -81,7 +81,7 @@ module ActsAsTaggableOn
 
         class_eval do
           has_many :taggings, as: :taggable, dependent: :destroy, class_name: '::ActsAsTaggableOn::Tagging'
-          has_many :base_tags, through: :taggings, source: :tag, class_name: '::ActsAsTaggableOn::Tag'
+          has_many :base_tags, through: :taggings, source: :tag, class_name: 'Tag'
 
           def self.taggable?
             true

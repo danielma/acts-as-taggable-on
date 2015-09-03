@@ -32,7 +32,7 @@ module ActsAsTaggableOn::Taggable
 
             has_many_with_taggable_compatibility context_tags, through: context_taggings,
                                                  source: :tag,
-                                                 class_name: 'ActsAsTaggableOn::Tag',
+                                                 class_name: 'Tag',
                                                  order: taggings_order
 
           end
@@ -432,7 +432,7 @@ module ActsAsTaggableOn::Taggable
       tag_lists = tag_types.map {|tags_type| "#{tags_type.to_s.singularize}_list"}
       super.delete_if {|attr| tag_lists.include? attr }
     end
-    
+
     ##
     # Override this hook if you wish to subclass {ActsAsTaggableOn::Tag} --
     # context is provided so that you may conditionally use a Tag subclass
